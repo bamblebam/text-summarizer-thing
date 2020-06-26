@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main.css' %}" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="flex-wrapper">
+
+            {% if messages %}
+            <div class="error alert-danger">
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="cover">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <textarea type="textarea" name="stuff" class="form-control" rows="20" required
+                        placeholder="Input Text"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="num_of_lines" class="form-control" required min="1"
+                        placeholder="Number of lines">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Summarize" class="form-control btn-outline-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
