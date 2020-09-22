@@ -1,2 +1,2 @@
 # text-summarizer-thing
-it summarizes text using nltk and django
+It summarizes text using nltk and the website is served using django
